@@ -143,4 +143,4 @@ plt.show()
 np.fft.fft2やcv2.dftの参照ページ
 （http://labs.eecs.tottori-u.ac.jp/sd/Member/oyamada/OpenCV/html/py_tutorials/py_imgproc/py_transforms/py_fourier_transform/py_fourier_transform.html）
 
-![実行結果gif]()
+![実行結果gif](https://raw.github.com/wiki/heterotaxy/Task2/image/Task.mov.gif)
