@@ -1,7 +1,5 @@
 # Task2
 
-## 高橋晴矢　B170215
-
 ```python
 import cv2
 import numpy as np
