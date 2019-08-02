@@ -18,6 +18,8 @@ def Press(event):
     Dragflag = True
     waveIm = F_re(x1,y1,raws,cols)
     backIm = makeIm(x1,y1,backIm,dft_shift,clikIm)
+    cv2.normalize(backIm, backIm, 0.0, 1.0, cv2.NORM_MINMAX)
+    backIm = np.float32(backIm)
     clikIm = whereClik(X,Y,clikIm)
     im1.set_data(backIm)
     im2.set_data(clikIm)
@@ -39,6 +41,8 @@ def Drag(event):
     y2 = np.abs(Y-raws//2)
     waveIm = F_re(x2,y2,raws,cols)
     backIm = makeIm(x2,y2,backIm,dft_shift,clikIm)
+    cv2.normalize(backIm, backIm, 0.0, 1.0, cv2.NORM_MINMAX)
+    backIm = np.float32(backIm)
     clikIm = whereClik(X,Y,clikIm)
     im3.set_data(waveIm)
     im1.set_data(backIm)
@@ -104,6 +108,9 @@ waveIm = F_re(x2,y2,raws,cols)
 backIm = makeIm(x2,y2,backIm,dft_shift,clikIm)
 clikImIm = whereClik(x2+cols//2,y2+raws//2,clikIm)
 
+cv2.normalize(backIm, backIm, 0.0, 1.0, cv2.NORM_MINMAX)
+backIm = np.float32(backIm)
+
 plt.close('all')
 plt.figure(figsize=(8,4))
 
@@ -114,7 +121,7 @@ plt.subplot(232),plt.imshow(magIm, cmap = 'gray')
 plt.title('Magnitude Spectrum'), plt.xticks([]), plt.yticks([])
 
 plt.subplot(234)
-im1=plt.imshow(backIm, cmap = 'gray',vmin = 200000,  vmax  =600000)
+im1=plt.imshow(backIm, cmap = 'gray',vmin = 0,  vmax  = 1)
 plt.title('BACK IMAGE'),plt.xticks([]), plt.yticks([])
 
 plt.subplot(235)
